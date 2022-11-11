@@ -1,20 +1,20 @@
 package it.unicam.pnm.core.mapper.inbound;
 
 import it.unicam.pnm.core.mapper.DTOMapper;
-import it.unicam.pnm.core.model.ProdottoModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoCreateDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoUpdateDTO;
+import it.unicam.pnm.core.model.TipoProdottoModel;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCreateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoUpdateDTO;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 
 // @Mapper(componentModel = "spring", uses = {ClasseComposizioneModelMapper.class, RefettorioModelMapper.class, TurnoModelMapper.class})
 @Mapper(componentModel = "spring", uses = {})
-public interface ProdottoDTOMapper extends DTOMapper<ProdottoDTO, ProdottoModel> {
+public interface TipoProdottoDTOMapper extends DTOMapper<TipoProdottoDTO, TipoProdottoModel> {
 
-    ProdottoDTO fromUpdateDTO(ProdottoUpdateDTO dto);
+    TipoProdottoDTO fromUpdateDTO(TipoProdottoUpdateDTO dto);
 
-    ProdottoDTO fromCreateDTO(ProdottoCreateDTO dto);
+    TipoProdottoDTO fromCreateDTO(TipoProdottoCreateDTO dto);
 
     // @Mapping(target = "classeComposizione.id", source = "classeComposizione")
     //    @Mapping(target = "refettorio.id", source = "refettorio")

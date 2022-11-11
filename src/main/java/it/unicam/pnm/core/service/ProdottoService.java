@@ -1,13 +1,13 @@
 package it.unicam.pnm.core.service;
 
-import it.unicam.pnm.core.mapper.inbound.ProdottoDTOMapper;
-import it.unicam.pnm.core.model.ProdottoModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoCreateDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoCriteria;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoUpdateDTO;
-import it.unicam.pnm.inbound.port.ProdottoInboundPort;
-import it.unicam.pnm.outbound.port.ProdottoOutboundPort;
+import it.unicam.pnm.core.mapper.inbound.TipoProdottoDTOMapper;
+import it.unicam.pnm.core.model.TipoProdottoModel;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCreateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCriteria;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoUpdateDTO;
+import it.unicam.pnm.inbound.port.TipoProdottoInboundPort;
+import it.unicam.pnm.outbound.port.TipoProdottoOutboundPort;
 import it.unicam.pnm.web.rest.errors.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,44 +17,44 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class ProdottoService implements ProdottoInboundPort {
+public class TipoProdottoService implements TipoProdottoInboundPort {
 
     @Autowired
-    private ProdottoDTOMapper prodottoMapper;
+    private TipoProdottoDTOMapper tipoProdottoMapper;
 
     @Autowired
-    private ProdottoOutboundPort prodottoPersistence;
+    private TipoProdottoOutboundPort tipoProdottoPersistence;
 
     @Override
-    public ProdottoDTO create(ProdottoCreateDTO dto) {
-        ProdottoDTO prodottoDto = prodottoMapper.fromCreateDTO(dto);
-        //this.validate(prodottoDto);
-        return prodottoMapper.toDto(prodottoPersistence.save(prodottoMapper.toModel(prodottoDto)));
+    public TipoProdottoDTO create(TipoProdottoCreateDTO dto) {
+        TipoProdottoDTO tipoProdottoDto = tipoProdottoMapper.fromCreateDTO(dto);
+        //this.validate(tipoProdottoDto);
+        return tipoProdottoMapper.toDto(tipoProdottoPersistence.save(tipoProdottoMapper.toModel(tipoProdottoDto)));
     }
 
     @Override
-    public Page<ProdottoDTO> search(ProdottoCriteria criteria, Pageable pageRequest) {
-        Page<ProdottoModel> models = prodottoPersistence.search(criteria, pageRequest);
-        return models.map(model -> this.prodottoMapper.toDto(model));
+    public Page<TipoProdottoDTO> search(TipoProdottoCriteria criteria, Pageable pageRequest) {
+        Page<TipoProdottoModel> models = tipoProdottoPersistence.search(criteria, pageRequest);
+        return models.map(model -> this.tipoProdottoMapper.toDto(model));
     }
 
     @Override
-    public ProdottoDTO update(ProdottoUpdateDTO dto) {
+    public TipoProdottoDTO update(TipoProdottoUpdateDTO dto) {
         this.checkExists(dto.getId());
-        ProdottoDTO prodottoDto = prodottoMapper.fromUpdateDTO(dto);
-        //this.validate(prodottoDto);
-        return prodottoMapper.toDto(prodottoPersistence.save(prodottoMapper.toModel(prodottoDto)));
+        TipoProdottoDTO tipoProdottoDto = tipoProdottoMapper.fromUpdateDTO(dto);
+        //this.validate(tipoProdottoDto);
+        return tipoProdottoMapper.toDto(tipoProdottoPersistence.save(tipoProdottoMapper.toModel(tipoProdottoDto)));
     }
 
     @Override
     public void delete(UUID id) {
         this.checkExists(id);
-        prodottoPersistence.delete(id);
+        tipoProdottoPersistence.delete(id);
     }
 
     private void checkExists(UUID id){
-        if(!prodottoPersistence.existsById(id)){
-            throw new NotFoundException(String.format("Prodotto %s non trovato", id));
+        if(!tipoProdottoPersistence.existsById(id)){
+            throw new NotFoundException(String.format("TipoProdotto %s non trovato", id));
         }
     }
 

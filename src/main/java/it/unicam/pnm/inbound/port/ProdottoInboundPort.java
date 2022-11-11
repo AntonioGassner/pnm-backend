@@ -1,22 +1,22 @@
 package it.unicam.pnm.inbound.port;
 
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoCreateDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoCriteria;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoUpdateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCreateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCriteria;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoUpdateDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface ProdottoInboundPort {
+public interface TipoProdottoInboundPort {
 
-    ProdottoDTO create(ProdottoCreateDTO dto);
+    TipoProdottoDTO create(TipoProdottoCreateDTO dto);
 
-    Page<ProdottoDTO> search(ProdottoCriteria criteria, Pageable pageRequest);
+    Page<TipoProdottoDTO> search(TipoProdottoCriteria criteria, Pageable pageRequest);
 
-    ProdottoDTO update(ProdottoUpdateDTO dto);
+    TipoProdottoDTO update(TipoProdottoUpdateDTO dto);
 
     void delete(UUID id);
 

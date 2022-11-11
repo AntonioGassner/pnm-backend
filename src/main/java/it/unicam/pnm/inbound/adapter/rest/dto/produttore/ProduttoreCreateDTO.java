@@ -15,4 +15,15 @@ public class ProduttoreCreateDTO implements Serializable {
 
     @NotBlank
     private String cognome;
+    
+    @NotBlank
+    private String codiceFiscale;
+    
+    @NotBlank
+    private String numeroPrivato;
+
+    @NotBlank
+    private String email;
+
+
 }

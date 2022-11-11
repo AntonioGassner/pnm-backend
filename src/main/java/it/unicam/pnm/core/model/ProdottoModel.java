@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
-public class ProdottoModel implements Serializable {
+public class TipoProdottoModel implements Serializable {
 
     private UUID id;
 

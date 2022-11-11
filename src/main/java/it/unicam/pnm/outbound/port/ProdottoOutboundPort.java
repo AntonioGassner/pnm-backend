@@ -1,19 +1,19 @@
 package it.unicam.pnm.outbound.port;
 
-import it.unicam.pnm.core.model.ProdottoModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.prodotto.ProdottoCriteria;
+import it.unicam.pnm.core.model.TipoProdottoModel;
+import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCriteria;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.UUID;
 
-public interface ProdottoOutboundPort {
+public interface TipoProdottoOutboundPort {
 
-    ProdottoModel save(ProdottoModel model);
+    TipoProdottoModel save(TipoProdottoModel model);
 
-    Page<ProdottoModel> search(ProdottoCriteria criteria, Pageable pageRequest);
+    Page<TipoProdottoModel> search(TipoProdottoCriteria criteria, Pageable pageRequest);
 
-    ProdottoModel getById(UUID id);
+    TipoProdottoModel getById(UUID id);
 
     boolean existsById(UUID id);
 

@@ -14,4 +14,9 @@ public class ProduttoreCriteria {
     List<StringFilter> nome = new ArrayList<>();
 
     List<StringFilter> cognome = new ArrayList<>();
+
+    List<StringFilter> codiceFiscale = new ArrayList<>();
+
+    List<StringFilter> partitaIva = new ArrayList<>();
+
 }

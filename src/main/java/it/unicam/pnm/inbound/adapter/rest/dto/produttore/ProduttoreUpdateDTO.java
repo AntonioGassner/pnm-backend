@@ -19,4 +19,18 @@ public class ProduttoreUpdateDTO implements Serializable {
     @NotBlank
     private String cognome;
 
+    @NotBlank
+    private String codiceFiscale;
+
+    @NotBlank
+    private String numeroPrivato;
+
+    @NotBlank
+    private String email;
+
+    @NotBlank
+    private String partitaIva;
+
+    // vediamo se riusciamo a trovargli un nome migliore
+    private boolean tesseramentoAttivo;
 }

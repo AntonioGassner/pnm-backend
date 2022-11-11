@@ -25,5 +25,9 @@ public class ProduttoreCreateDTO implements Serializable {
     @NotBlank
     private String email;
 
+    @NotBlank
+    private String partitaIva;
 
+    // vediamo se riusciamo a trovargli un nome migliore
+    private boolean tesseramentoAttivo;
 }

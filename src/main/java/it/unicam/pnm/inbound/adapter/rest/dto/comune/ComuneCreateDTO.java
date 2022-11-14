@@ -1,5 +1,6 @@
-package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
+package it.unicam.pnm.inbound.adapter.rest.dto.comune;
 
+import it.unicam.pnm.inbound.adapter.rest.dto.provincia.ProvinciaDTO;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -10,25 +11,12 @@ import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
-public class AziendaUpdateDTO implements Serializable {
-
-    private UUID id;
+public class ComuneCreateDTO implements Serializable {
 
     @NotBlank
     private String nome;
 
-    @NotBlank
-    private String numeroPubblico;
-
-    @NotBlank
-    private String email;
-
-    @NotNull
-    private UUID produttore;
-
-    @NotNull
-    private UUID comune;
-
     @NotNull
     private UUID provincia;
+
 }

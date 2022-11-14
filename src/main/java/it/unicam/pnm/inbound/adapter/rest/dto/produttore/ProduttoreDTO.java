@@ -13,7 +13,6 @@ public class ProduttoreDTO implements Serializable {
 
     private UUID id;
 
-
     @NotBlank
     private String nome;
 
@@ -34,4 +33,5 @@ public class ProduttoreDTO implements Serializable {
 
     // vediamo se riusciamo a trovargli un nome migliore
     private boolean tesseramentoAttivo;
+
 }

@@ -45,7 +45,7 @@ public class ProduttoreRESTAdapter {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> Produttore(@PathVariable("id") UUID id){
+    public ResponseEntity<?> deleteProduttore(@PathVariable("id") UUID id){
         produttoreInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

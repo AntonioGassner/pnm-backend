@@ -47,7 +47,7 @@ public class TipoProdottoRESTAdapter {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> TipoProdotto(@PathVariable("id") UUID id){
+    public ResponseEntity<?> deleteTipoProdotto(@PathVariable("id") UUID id){
         tipoProdottoInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

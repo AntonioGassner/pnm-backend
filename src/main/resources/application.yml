@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: pnm-produttori
+    profiles:
+      active: dev
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pnm-produttori
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver

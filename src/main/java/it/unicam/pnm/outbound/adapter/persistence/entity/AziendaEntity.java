@@ -26,16 +26,16 @@ public class AziendaEntity {
     @Column(name = "numeroPubblico")
     private String numeroPubblico;
 
-    @Column(name = "numeroPubblico")
+    @Column(name = "email")
     private String email;
 
-    @Column(name = "numeroPubblico")
+    @Column(name = "produttore")
     private UUID produttore;
 
-    @Column(name = "numeroPubblico")
+    @Column(name = "comune")
     private UUID comune;
 
-    @Column(name = "numeroPubblico")
+    @Column(name = "provincia")
     private UUID provincia;
 
 }

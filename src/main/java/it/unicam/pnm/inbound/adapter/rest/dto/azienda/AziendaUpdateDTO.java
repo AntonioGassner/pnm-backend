@@ -3,6 +3,7 @@ package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -20,6 +21,7 @@ public class AziendaUpdateDTO implements Serializable {
     @NotBlank
     private String numeroPubblico;
 
+    @Email
     @NotBlank
     private String email;
 

@@ -13,7 +13,6 @@ public class ProvinciaDTO implements Serializable {
 
     private UUID id;
 
-    @NotBlank
     private String nome;
 
 }

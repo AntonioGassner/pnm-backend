@@ -14,9 +14,7 @@ public class ComuneDTO implements Serializable {
 
     private UUID id;
 
-    @NotBlank
     private String nome;
 
-    @NotNull
     private UUID provincia;
 }

@@ -23,14 +23,14 @@ public class AziendaRESTAdapter {
     private AziendaInboundPort aziendaInboundPort;
 
     @PostMapping
-    public ResponseEntity<AziendaDTO> createAzienda(@Valid @RequestBody AziendaCreateDTO dto){
+    public ResponseEntity<AziendaDTO> createAzienda(@Valid @RequestBody AziendaCreateDTO dto) {
         return new ResponseEntity<>(aziendaInboundPort.create(dto), HttpStatus.OK);
     }
 
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<AziendaDTO>> searchAzienda(@Valid @RequestBody AziendaCriteria criteria, Pageable pageRequest){
+    public ResponseEntity<Page<AziendaDTO>> searchAzienda(@Valid @RequestBody AziendaCriteria criteria, Pageable pageRequest) {
         Page<AziendaDTO> dtos = aziendaInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -40,12 +40,12 @@ public class AziendaRESTAdapter {
     }
 
     @PutMapping
-    public ResponseEntity<AziendaDTO> updateAzienda(@Valid @RequestBody AziendaUpdateDTO dto){
+    public ResponseEntity<AziendaDTO> updateAzienda(@Valid @RequestBody AziendaUpdateDTO dto) {
         return new ResponseEntity<>(aziendaInboundPort.update(dto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteAzienda(@PathVariable("id") UUID id){
+    public ResponseEntity<?> deleteAzienda(@PathVariable("id") UUID id) {
         aziendaInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

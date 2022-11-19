@@ -8,15 +8,15 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class ComuneSpecification extends AbstractSpecification<ComuneEntity> {
 
-    public Specification<ComuneEntity> filter(ComuneCriteria criteria){
+    public Specification<ComuneEntity> filter(ComuneCriteria criteria) {
 
 //        String flagName = "flagElimina";
 //        boolean flagValue = false;
 
         Specification<ComuneEntity> specification =
                 super.applySearchFilter(criteria.getNome(), "nome")
-                .and(super.applySearchFilter(criteria.getNome(), "cognome"));
+                        .and(super.applySearchFilter(criteria.getNome(), "cognome"));
 
-                return specification;
+        return specification;
     }
 }

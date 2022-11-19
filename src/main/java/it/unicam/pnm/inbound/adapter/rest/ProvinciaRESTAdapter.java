@@ -23,14 +23,14 @@ public class ProvinciaRESTAdapter {
     private ProvinciaInboundPort provinciaInboundPort;
 
     @PostMapping
-    public ResponseEntity<ProvinciaDTO> createProvincia(@Valid @RequestBody ProvinciaCreateDTO dto){
+    public ResponseEntity<ProvinciaDTO> createProvincia(@Valid @RequestBody ProvinciaCreateDTO dto) {
         return new ResponseEntity<>(provinciaInboundPort.create(dto), HttpStatus.OK);
     }
 
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<ProvinciaDTO>> searchProvincia(@Valid @RequestBody ProvinciaCriteria criteria, Pageable pageRequest){
+    public ResponseEntity<Page<ProvinciaDTO>> searchProvincia(@Valid @RequestBody ProvinciaCriteria criteria, Pageable pageRequest) {
         Page<ProvinciaDTO> dtos = provinciaInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -40,12 +40,12 @@ public class ProvinciaRESTAdapter {
     }
 
     @PutMapping
-    public ResponseEntity<ProvinciaDTO> updateProvincia(@Valid @RequestBody ProvinciaUpdateDTO dto){
+    public ResponseEntity<ProvinciaDTO> updateProvincia(@Valid @RequestBody ProvinciaUpdateDTO dto) {
         return new ResponseEntity<>(provinciaInboundPort.update(dto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteProvincia(@PathVariable("id") UUID id){
+    public ResponseEntity<?> deleteProvincia(@PathVariable("id") UUID id) {
         provinciaInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

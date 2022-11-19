@@ -25,14 +25,14 @@ public class TipoProdottoRESTAdapter {
     private TipoProdottoInboundPort tipoProdottoInboundPort;
 
     @PostMapping
-    public ResponseEntity<TipoProdottoDTO> createTipoProdotto(@Valid @RequestBody TipoProdottoCreateDTO dto){
+    public ResponseEntity<TipoProdottoDTO> createTipoProdotto(@Valid @RequestBody TipoProdottoCreateDTO dto) {
         return new ResponseEntity<>(tipoProdottoInboundPort.create(dto), HttpStatus.OK);
     }
 
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<TipoProdottoDTO>> searchTipoProdotto(@Valid @RequestBody TipoProdottoCriteria criteria, Pageable pageRequest){
+    public ResponseEntity<Page<TipoProdottoDTO>> searchTipoProdotto(@Valid @RequestBody TipoProdottoCriteria criteria, Pageable pageRequest) {
         Page<TipoProdottoDTO> dtos = tipoProdottoInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -42,12 +42,12 @@ public class TipoProdottoRESTAdapter {
     }
 
     @PutMapping
-    public ResponseEntity<TipoProdottoDTO> updateTipoProdotto(@Valid @RequestBody TipoProdottoUpdateDTO dto){
+    public ResponseEntity<TipoProdottoDTO> updateTipoProdotto(@Valid @RequestBody TipoProdottoUpdateDTO dto) {
         return new ResponseEntity<>(tipoProdottoInboundPort.update(dto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteTipoProdotto(@PathVariable("id") UUID id){
+    public ResponseEntity<?> deleteTipoProdotto(@PathVariable("id") UUID id) {
         tipoProdottoInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

@@ -6,15 +6,15 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class ProduttoreSpecification extends AbstractSpecification<ProduttoreEntity> {
 
-    public Specification<ProduttoreEntity> filter(ProduttoreCriteria criteria){
+    public Specification<ProduttoreEntity> filter(ProduttoreCriteria criteria) {
 
 //        String flagName = "flagElimina";
 //        boolean flagValue = false;
 
         Specification<ProduttoreEntity> specification =
                 super.applySearchFilter(criteria.getNome(), "nome")
-                .and(super.applySearchFilter(criteria.getNome(), "cognome"));
+                        .and(super.applySearchFilter(criteria.getNome(), "cognome"));
 
-                return specification;
+        return specification;
     }
 }

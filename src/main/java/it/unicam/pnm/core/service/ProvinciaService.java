@@ -24,24 +24,27 @@ public class ProvinciaService implements ProvinciaInboundPort {
 
     @Autowired
     private ProvinciaOutboundPort provinciaPersistence;
-    
+
     @Override
     public ProvinciaDTO create(ProvinciaCreateDTO dto) {
         ProvinciaDTO provinciaDto = provinciaMapper.fromCreateDTO(dto);
         //this.validate(provinciaDto);
-        return provinciaMapper.toDto(provinciaPersistence.save(provinciaMapper.toModel(provinciaDto)));    }
+        return provinciaMapper.toDto(provinciaPersistence.save(provinciaMapper.toModel(provinciaDto)));
+    }
 
     @Override
     public Page<ProvinciaDTO> search(ProvinciaCriteria criteria, Pageable pageRequest) {
         Page<ProvinciaModel> models = provinciaPersistence.search(criteria, pageRequest);
-        return models.map(model -> this.provinciaMapper.toDto(model));    }
+        return models.map(model -> this.provinciaMapper.toDto(model));
+    }
 
     @Override
     public ProvinciaDTO update(ProvinciaUpdateDTO dto) {
         this.checkExists(dto.getId());
         ProvinciaDTO provinciaDto = provinciaMapper.fromUpdateDTO(dto);
         //this.validate(provinciaDto);
-        return provinciaMapper.toDto(provinciaPersistence.save(provinciaMapper.toModel(provinciaDto)));    }
+        return provinciaMapper.toDto(provinciaPersistence.save(provinciaMapper.toModel(provinciaDto)));
+    }
 
     @Override
     public void delete(UUID id) {
@@ -49,8 +52,8 @@ public class ProvinciaService implements ProvinciaInboundPort {
         provinciaPersistence.delete(id);
     }
 
-    private void checkExists(UUID id){
-        if(!provinciaPersistence.existsById(id)){
+    private void checkExists(UUID id) {
+        if (!provinciaPersistence.existsById(id)) {
             throw new NotFoundException(String.format("Provincia %s non trovato", id));
         }
     }

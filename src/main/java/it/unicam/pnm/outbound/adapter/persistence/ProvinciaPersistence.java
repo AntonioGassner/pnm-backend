@@ -37,7 +37,7 @@ public class ProvinciaPersistence extends ProvinciaSpecification implements Prov
     @Override
     public Page<ProvinciaModel> search(ProvinciaCriteria criteria, Pageable pageRequest) {
         Page<ProvinciaEntity> entities = provinciaRepository.findAll(this.filter(criteria), pageRequest);
-        return entities.map(entity -> this.provinciaEntityMapper.fromEntityToModel(entity)) ;
+        return entities.map(entity -> this.provinciaEntityMapper.fromEntityToModel(entity));
     }
 
     @Override

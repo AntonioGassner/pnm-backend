@@ -37,7 +37,7 @@ public class TipoProdottoPersistence extends TipoProdottoSpecification implement
     @Override
     public Page<TipoProdottoModel> search(TipoProdottoCriteria criteria, Pageable pageRequest) {
         Page<TipoProdottoEntity> entities = tipoProdottoRepository.findAll(this.filter(criteria), pageRequest);
-        return entities.map(entity -> this.tipoProdottoEntityMapper.fromEntityToModel(entity)) ;
+        return entities.map(entity -> this.tipoProdottoEntityMapper.fromEntityToModel(entity));
     }
 
     @Override

@@ -8,15 +8,15 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class AziendaSpecification extends AbstractSpecification<AziendaEntity> {
 
-    public Specification<AziendaEntity> filter(AziendaCriteria criteria){
+    public Specification<AziendaEntity> filter(AziendaCriteria criteria) {
 
 //        String flagName = "flagElimina";
 //        boolean flagValue = false;
 
         Specification<AziendaEntity> specification =
                 super.applySearchFilter(criteria.getNome(), "nome")
-                .and(super.applySearchFilter(criteria.getNome(), "cognome"));
+                        .and(super.applySearchFilter(criteria.getNome(), "cognome"));
 
-                return specification;
+        return specification;
     }
 }

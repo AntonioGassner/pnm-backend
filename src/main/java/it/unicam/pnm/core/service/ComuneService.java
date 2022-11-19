@@ -24,24 +24,27 @@ public class ComuneService implements ComuneInboundPort {
 
     @Autowired
     private ComuneOutboundPort comunePersistence;
-    
+
     @Override
     public ComuneDTO create(ComuneCreateDTO dto) {
         ComuneDTO comuneDto = comuneMapper.fromCreateDTO(dto);
         //this.validate(comuneDto);
-        return comuneMapper.toDto(comunePersistence.save(comuneMapper.toModel(comuneDto)));    }
+        return comuneMapper.toDto(comunePersistence.save(comuneMapper.toModel(comuneDto)));
+    }
 
     @Override
     public Page<ComuneDTO> search(ComuneCriteria criteria, Pageable pageRequest) {
         Page<ComuneModel> models = comunePersistence.search(criteria, pageRequest);
-        return models.map(model -> this.comuneMapper.toDto(model));    }
+        return models.map(model -> this.comuneMapper.toDto(model));
+    }
 
     @Override
     public ComuneDTO update(ComuneUpdateDTO dto) {
         this.checkExists(dto.getId());
         ComuneDTO comuneDto = comuneMapper.fromUpdateDTO(dto);
         //this.validate(comuneDto);
-        return comuneMapper.toDto(comunePersistence.save(comuneMapper.toModel(comuneDto)));    }
+        return comuneMapper.toDto(comunePersistence.save(comuneMapper.toModel(comuneDto)));
+    }
 
     @Override
     public void delete(UUID id) {
@@ -49,8 +52,8 @@ public class ComuneService implements ComuneInboundPort {
         comunePersistence.delete(id);
     }
 
-    private void checkExists(UUID id){
-        if(!comunePersistence.existsById(id)){
+    private void checkExists(UUID id) {
+        if (!comunePersistence.existsById(id)) {
             throw new NotFoundException(String.format("Comune %s non trovato", id));
         }
     }

@@ -3,7 +3,6 @@ package it.unicam.pnm.inbound.adapter.rest.dto.provincia;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.util.UUID;
 

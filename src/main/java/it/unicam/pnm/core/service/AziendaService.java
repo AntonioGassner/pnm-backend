@@ -24,24 +24,27 @@ public class AziendaService implements AziendaInboundPort {
 
     @Autowired
     private AziendaOutboundPort aziendaPersistence;
-    
+
     @Override
     public AziendaDTO create(AziendaCreateDTO dto) {
         AziendaDTO aziendaDto = aziendaMapper.fromCreateDTO(dto);
         //this.validate(aziendaDto);
-        return aziendaMapper.toDto(aziendaPersistence.save(aziendaMapper.toModel(aziendaDto)));    }
+        return aziendaMapper.toDto(aziendaPersistence.save(aziendaMapper.toModel(aziendaDto)));
+    }
 
     @Override
     public Page<AziendaDTO> search(AziendaCriteria criteria, Pageable pageRequest) {
         Page<AziendaModel> models = aziendaPersistence.search(criteria, pageRequest);
-        return models.map(model -> this.aziendaMapper.toDto(model));    }
+        return models.map(model -> this.aziendaMapper.toDto(model));
+    }
 
     @Override
     public AziendaDTO update(AziendaUpdateDTO dto) {
         this.checkExists(dto.getId());
         AziendaDTO aziendaDto = aziendaMapper.fromUpdateDTO(dto);
         //this.validate(aziendaDto);
-        return aziendaMapper.toDto(aziendaPersistence.save(aziendaMapper.toModel(aziendaDto)));    }
+        return aziendaMapper.toDto(aziendaPersistence.save(aziendaMapper.toModel(aziendaDto)));
+    }
 
     @Override
     public void delete(UUID id) {
@@ -49,8 +52,8 @@ public class AziendaService implements AziendaInboundPort {
         aziendaPersistence.delete(id);
     }
 
-    private void checkExists(UUID id){
-        if(!aziendaPersistence.existsById(id)){
+    private void checkExists(UUID id) {
+        if (!aziendaPersistence.existsById(id)) {
             throw new NotFoundException(String.format("Azienda %s non trovato", id));
         }
     }

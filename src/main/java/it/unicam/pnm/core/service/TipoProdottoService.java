@@ -52,8 +52,8 @@ public class TipoProdottoService implements TipoProdottoInboundPort {
         tipoProdottoPersistence.delete(id);
     }
 
-    private void checkExists(UUID id){
-        if(!tipoProdottoPersistence.existsById(id)){
+    private void checkExists(UUID id) {
+        if (!tipoProdottoPersistence.existsById(id)) {
             throw new NotFoundException(String.format("TipoProdotto %s non trovato", id));
         }
     }

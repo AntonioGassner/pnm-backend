@@ -37,7 +37,7 @@ public class AziendaPersistence extends AziendaSpecification implements AziendaO
     @Override
     public Page<AziendaModel> search(AziendaCriteria criteria, Pageable pageRequest) {
         Page<AziendaEntity> entities = aziendaRepository.findAll(this.filter(criteria), pageRequest);
-        return entities.map(entity -> this.aziendaEntityMapper.fromEntityToModel(entity)) ;
+        return entities.map(entity -> this.aziendaEntityMapper.fromEntityToModel(entity));
     }
 
     @Override

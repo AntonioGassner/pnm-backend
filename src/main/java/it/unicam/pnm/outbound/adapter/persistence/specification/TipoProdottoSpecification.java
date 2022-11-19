@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 public class TipoProdottoSpecification extends AbstractSpecification<TipoProdottoEntity> {
 
-    public Specification<TipoProdottoEntity> filter(it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCriteria criteria){
+    public Specification<TipoProdottoEntity> filter(it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCriteria criteria) {
 
 //        String flagName = "flagElimina";
 //        boolean flagValue = false;

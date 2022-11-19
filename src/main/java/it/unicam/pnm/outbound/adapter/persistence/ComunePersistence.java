@@ -37,7 +37,7 @@ public class ComunePersistence extends ComuneSpecification implements ComuneOutb
     @Override
     public Page<ComuneModel> search(ComuneCriteria criteria, Pageable pageRequest) {
         Page<ComuneEntity> entities = comuneRepository.findAll(this.filter(criteria), pageRequest);
-        return entities.map(entity -> this.comuneEntityMapper.fromEntityToModel(entity)) ;
+        return entities.map(entity -> this.comuneEntityMapper.fromEntityToModel(entity));
     }
 
     @Override

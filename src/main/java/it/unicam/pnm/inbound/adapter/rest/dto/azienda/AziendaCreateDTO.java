@@ -1,6 +1,5 @@
 package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
 
-import it.unicam.pnm.inbound.adapter.rest.dto.produttore.ProduttoreDTO;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -16,7 +15,7 @@ public class AziendaCreateDTO implements Serializable {
 
     @NotBlank
     private String nome;
-    
+
     @NotBlank
     private String numeroPubblico;
 

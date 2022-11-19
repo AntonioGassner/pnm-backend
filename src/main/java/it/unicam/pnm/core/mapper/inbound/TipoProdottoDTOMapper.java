@@ -6,7 +6,6 @@ import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoCreateDTO
 import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoDTO;
 import it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto.TipoProdottoUpdateDTO;
 import org.mapstruct.Mapper;
-import org.springframework.stereotype.Component;
 
 // @Mapper(componentModel = "spring", uses = {ClasseComposizioneModelMapper.class, RefettorioModelMapper.class, TurnoModelMapper.class})
 @Mapper(componentModel = "spring", uses = {})

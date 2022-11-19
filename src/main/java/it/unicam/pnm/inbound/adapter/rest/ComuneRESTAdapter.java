@@ -23,14 +23,14 @@ public class ComuneRESTAdapter {
     private ComuneInboundPort comuneInboundPort;
 
     @PostMapping
-    public ResponseEntity<ComuneDTO> createComune(@Valid @RequestBody ComuneCreateDTO dto){
+    public ResponseEntity<ComuneDTO> createComune(@Valid @RequestBody ComuneCreateDTO dto) {
         return new ResponseEntity<>(comuneInboundPort.create(dto), HttpStatus.OK);
     }
 
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<ComuneDTO>> searchComune(@Valid @RequestBody ComuneCriteria criteria, Pageable pageRequest){
+    public ResponseEntity<Page<ComuneDTO>> searchComune(@Valid @RequestBody ComuneCriteria criteria, Pageable pageRequest) {
         Page<ComuneDTO> dtos = comuneInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -40,12 +40,12 @@ public class ComuneRESTAdapter {
     }
 
     @PutMapping
-    public ResponseEntity<ComuneDTO> updateComune(@Valid @RequestBody ComuneUpdateDTO dto){
+    public ResponseEntity<ComuneDTO> updateComune(@Valid @RequestBody ComuneUpdateDTO dto) {
         return new ResponseEntity<>(comuneInboundPort.update(dto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteComune(@PathVariable("id") UUID id){
+    public ResponseEntity<?> deleteComune(@PathVariable("id") UUID id) {
         comuneInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

@@ -11,5 +11,5 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/pnm-produttori
     username: postgres
-    password: postgres
+    password: pass
     driverClassName: org.postgresql.Driver

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: pnm-produttori
+    profiles:
+      active: dev
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      # Set this to "create" the first time you run the project with your database open and running
+      # It generates your DB tables etc
+      # After first run stop project, set this to "update" and run again to use
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pnm-produttori
+    username: postgres #Leave as is
+    password: pass #Put password you used during postgres installation
+    driverClassName: org.postgresql.Driver

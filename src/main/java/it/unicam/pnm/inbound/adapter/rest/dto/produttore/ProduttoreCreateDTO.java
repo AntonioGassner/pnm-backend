@@ -3,6 +3,7 @@ package it.unicam.pnm.inbound.adapter.rest.dto.produttore;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
@@ -15,13 +16,14 @@ public class ProduttoreCreateDTO implements Serializable {
 
     @NotBlank
     private String cognome;
-    
+
     @NotBlank
     private String codiceFiscale;
-    
+
     @NotBlank
     private String numeroPrivato;
 
+    @Email
     @NotBlank
     private String email;
 

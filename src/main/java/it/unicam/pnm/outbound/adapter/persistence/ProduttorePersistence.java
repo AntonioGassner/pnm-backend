@@ -37,7 +37,7 @@ public class ProduttorePersistence extends ProduttoreSpecification implements Pr
     @Override
     public Page<ProduttoreModel> search(ProduttoreCriteria criteria, Pageable pageRequest) {
         Page<ProduttoreEntity> entities = produttoreRepository.findAll(this.filter(criteria), pageRequest);
-        return entities.map(entity -> this.produttoreEntityMapper.fromEntityToModel(entity)) ;
+        return entities.map(entity -> this.produttoreEntityMapper.fromEntityToModel(entity));
     }
 
     @Override

@@ -23,14 +23,14 @@ public class ProduttoreRESTAdapter {
     private ProduttoreInboundPort produttoreInboundPort;
 
     @PostMapping
-    public ResponseEntity<ProduttoreDTO> createProduttore(@Valid @RequestBody ProduttoreCreateDTO dto){
+    public ResponseEntity<ProduttoreDTO> createProduttore(@Valid @RequestBody ProduttoreCreateDTO dto) {
         return new ResponseEntity<>(produttoreInboundPort.create(dto), HttpStatus.OK);
     }
 
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<ProduttoreDTO>> searchProduttore(@Valid @RequestBody ProduttoreCriteria criteria, Pageable pageRequest){
+    public ResponseEntity<Page<ProduttoreDTO>> searchProduttore(@Valid @RequestBody ProduttoreCriteria criteria, Pageable pageRequest) {
         Page<ProduttoreDTO> dtos = produttoreInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -40,12 +40,12 @@ public class ProduttoreRESTAdapter {
     }
 
     @PutMapping
-    public ResponseEntity<ProduttoreDTO> updateProduttore(@Valid @RequestBody ProduttoreUpdateDTO dto){
+    public ResponseEntity<ProduttoreDTO> updateProduttore(@Valid @RequestBody ProduttoreUpdateDTO dto) {
         return new ResponseEntity<>(produttoreInboundPort.update(dto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> Produttore(@PathVariable("id") UUID id){
+    public ResponseEntity<?> deleteProduttore(@PathVariable("id") UUID id) {
         produttoreInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

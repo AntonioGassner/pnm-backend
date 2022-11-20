@@ -3,7 +3,9 @@ package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -17,20 +19,18 @@ public class AziendaUpdateDTO implements Serializable {
     private String nome;
 
     @NotBlank
-    private String cognome;
+    private String numeroPubblico;
 
-    @NotBlank
-    private String codiceFiscale;
-
-    @NotBlank
-    private String numeroPrivato;
-
+    @Email
     @NotBlank
     private String email;
 
-    @NotBlank
-    private String partitaIva;
+    @NotNull
+    private UUID produttore;
 
-    // vediamo se riusciamo a trovargli un nome migliore
-    private boolean tesseramentoAttivo;
+    @NotNull
+    private UUID comune;
+
+    @NotNull
+    private UUID provincia;
 }

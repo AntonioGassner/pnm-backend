@@ -82,7 +82,7 @@ public abstract class AbstractSpecification<ENTITY> extends QueryService<ENTITY>
     }
 
     protected <ENTITY1, ENTITY2> Specification<ENTITY> applyJoinInFilter(List<UUID> list, String fieldName,
-                                                                                Join<ENTITY1, ENTITY2> join) {
+                                                                         Join<ENTITY1, ENTITY2> join) {
         Specification<ENTITY> specification = Specification.where(null);
         if (!list.isEmpty()) {
             UUIDFilter filter = new UUIDFilter();

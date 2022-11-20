@@ -43,10 +43,14 @@ At this point you have both dependencies and generated classes. Nice!
    Now, pnm-produttori is the name of the database you created. Username is default for postgres. Password is whatever you setup locally, so change it for that. NOTE: put password for Postgres there, not Pgadmin.
    Once you all complete this configuration step we will put these files on .gitignore so everyone can have his password and it is not saved on github.
 
-6) Go back to IDE and look in top right on the toolbar. There should be something like "PnmApplication" between the build   and run buttons. This is a intellij premium feature from what i know and allows you to more easily run the project.
+6) hibernate: ddl-auto: update 
+   This needs to be set to "create" the first time you run the project, then set back to update.
+   It generates your database structure automatically
+
+7) Go back to IDE and look in top right on the toolbar. There should be something like "PnmApplication" between the build   and run buttons. This is a intellij premium feature from what i know and allows you to more easily run the project.
    Now click the "run" icon and pray. If all went well the application is now running and listening on port 8092
 
-7) Go back to Pgadmin, under "pnm-produttori" double click "schemas" -> public -> tables
+8) Go back to Pgadmin, under "pnm-produttori" double click "schemas" -> public -> tables
    you should see 5 tables, azienda, comune, produttore, provincia, tipo_prodotto
 
 
@@ -91,3 +95,4 @@ If you have no clue what this means let me guide you trough it step by step:
     OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
 If all the -version commands worked then you're good to go.
+

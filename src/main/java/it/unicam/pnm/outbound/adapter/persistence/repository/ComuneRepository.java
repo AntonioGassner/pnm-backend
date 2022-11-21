@@ -9,4 +9,5 @@ import java.util.UUID;
 
 @Repository
 public interface ComuneRepository extends JpaRepository<ComuneEntity, UUID>, JpaSpecificationExecutor<ComuneEntity> {
+
 }

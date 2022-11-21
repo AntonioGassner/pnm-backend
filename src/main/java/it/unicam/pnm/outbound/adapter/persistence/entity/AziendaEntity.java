@@ -27,6 +27,7 @@ public class AziendaEntity {
     @Column(name = "email")
     private String email;
 
+    //TODO sistemare la faccenda foreign keys con le annotations
     @Column(name = "produttore")
     private UUID produttore;
 

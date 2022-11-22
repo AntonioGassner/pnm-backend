@@ -1,4 +1,4 @@
-package it.unicam.pnm.inbound.adapter.rest.dto.comune;
+package it.unicam.pnm.inbound.adapter.rest.dto.aziendaCategoria;
 
 import io.github.jhipster.service.filter.StringFilter;
 import io.github.jhipster.service.filter.UUIDFilter;
@@ -11,9 +11,10 @@ import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
-public class ComuneCriteria {
+public class AziendaCategoriaCriteria {
 
-    List<StringFilter> nome = new ArrayList<>();
+    List<UUID> azienda = new ArrayList<>();
 
-    List<UUID> provincia = new ArrayList<>();
+    List<UUID> categoria = new ArrayList<>();
+
 }

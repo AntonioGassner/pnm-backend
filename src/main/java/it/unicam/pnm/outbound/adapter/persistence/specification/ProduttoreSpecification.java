@@ -13,7 +13,7 @@ public class ProduttoreSpecification extends AbstractSpecification<ProduttoreEnt
 
         Specification<ProduttoreEntity> specification =
                 super.applySearchFilter(criteria.getNome(), "nome")
-                        .and(super.applySearchFilter(criteria.getNome(), "cognome"));
+                        .and(super.applySearchFilter(criteria.getCognome(), "cognome"));
 
         return specification;
     }

@@ -1,4 +1,4 @@
-package it.unicam.pnm.inbound.adapter.rest.dto.tipoProdotto;
+package it.unicam.pnm.inbound.adapter.rest.dto.categoria;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Data
 @Accessors(chain = true)
-public class TipoProdottoCreateDTO implements Serializable {
+public class CategoriaCreateDTO implements Serializable {
 
     @NotBlank
     private String nome;

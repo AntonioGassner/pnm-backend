@@ -7,6 +7,7 @@ import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
@@ -14,12 +15,10 @@ public class AziendaCriteria {
 
     List<StringFilter> nome = new ArrayList<>();
 
-    List<StringFilter> partitaIva = new ArrayList<>();
+    List<UUID> produttore = new ArrayList<>();
 
-    List<UUIDFilter> produttore = new ArrayList<>();
+    List<UUID> comune = new ArrayList<>();
 
-    List<UUIDFilter> comune = new ArrayList<>();
-
-    List<UUIDFilter> provincia = new ArrayList<>();
+    List<UUID> provincia = new ArrayList<>();
 
 }

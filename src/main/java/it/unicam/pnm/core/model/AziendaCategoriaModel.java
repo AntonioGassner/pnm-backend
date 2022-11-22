@@ -8,12 +8,11 @@ import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
-public class ComuneModel implements Serializable {
+public class AziendaCategoriaModel implements Serializable {
 
     private UUID id;
 
-    private String nome;
+    private AziendaModel azienda;
 
-    private ProvinciaModel provincia;
-
+    private CategoriaModel categoria;
 }

@@ -22,6 +22,9 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 // TODO validation for foreign keys when adding entries at Service layer
 
+//TODO sistemare la faccenda foreign keys con le annotations
+// non sono sicuro che serve perché possiamo sempre cercare le entry che ci interessano usando il relativo UUID
+
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class PnmApplication {
 

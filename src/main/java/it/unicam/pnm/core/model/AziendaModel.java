@@ -18,10 +18,10 @@ public class AziendaModel implements Serializable {
 
     private String email;
 
-    private UUID produttore;
+    private ProduttoreModel produttore;
 
-    private UUID comune;
+    private ComuneModel comune;
 
-    private UUID provincia;
+    private ProvinciaModel provincia;
 
 }

@@ -1,18 +1,18 @@
-package it.unicam.pnm.core.model;
+package it.unicam.pnm.inbound.adapter.rest.dto.categoria;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
-import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
-public class TipoProdottoModel implements Serializable {
+public class CategoriaCreateDTO implements Serializable {
 
-    private UUID id;
-
+    @NotBlank
     private String nome;
 
     private String descrizione;
+
 }

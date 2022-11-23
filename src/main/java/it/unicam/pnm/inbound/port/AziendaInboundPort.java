@@ -13,6 +13,8 @@ public interface AziendaInboundPort {
 
     AziendaDTO create(AziendaCreateDTO dto);
 
+    // List<AziendaDTO> findByIds(List<UUID> ids); TODO aggiungere findbyids?
+
     Page<AziendaDTO> search(AziendaCriteria criteria, Pageable pageRequest);
 
     AziendaDTO update(AziendaUpdateDTO dto);

@@ -1,7 +1,6 @@
-package it.unicam.pnm.inbound.adapter.rest.dto.comune;
+package it.unicam.pnm.inbound.adapter.rest.dto.categoria;
 
 import io.github.jhipster.service.filter.StringFilter;
-import io.github.jhipster.service.filter.UUIDFilter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -13,11 +12,9 @@ import java.util.UUID;
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode
-public class ComuneCriteria {
+public class CategoriaCriteria {
 
     List<UUID> id = new ArrayList<>();
 
     List<StringFilter> nome = new ArrayList<>();
-
-    List<UUID> provincia = new ArrayList<>();
 }

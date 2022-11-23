@@ -1,5 +1,6 @@
 package it.unicam.pnm.inbound.adapter.rest.dto.comune;
 
+import it.unicam.pnm.inbound.adapter.rest.dto.provincia.ProvinciaDTO;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -14,5 +15,5 @@ public class ComuneDTO implements Serializable {
 
     private String nome;
 
-    private UUID provincia;
+    private ProvinciaDTO provincia;
 }

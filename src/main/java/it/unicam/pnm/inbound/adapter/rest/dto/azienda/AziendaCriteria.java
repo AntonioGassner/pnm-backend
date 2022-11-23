@@ -3,23 +3,26 @@ package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
 import io.github.jhipster.service.filter.StringFilter;
 import io.github.jhipster.service.filter.UUIDFilter;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
+@EqualsAndHashCode
 public class AziendaCriteria {
+
+    List<UUID> id = new ArrayList<>();
 
     List<StringFilter> nome = new ArrayList<>();
 
-    List<StringFilter> partitaIva = new ArrayList<>();
+    List<UUID> produttore = new ArrayList<>();
 
-    List<UUIDFilter> produttore = new ArrayList<>();
+    List<UUID> comune = new ArrayList<>();
 
-    List<UUIDFilter> comune = new ArrayList<>();
-
-    List<UUIDFilter> provincia = new ArrayList<>();
+    List<UUID> provincia = new ArrayList<>();
 
 }

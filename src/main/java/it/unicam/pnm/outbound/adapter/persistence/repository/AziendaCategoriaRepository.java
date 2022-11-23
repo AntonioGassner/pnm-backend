@@ -1,6 +1,6 @@
 package it.unicam.pnm.outbound.adapter.persistence.repository;
 
-import it.unicam.pnm.outbound.adapter.persistence.entity.ComuneEntity;
+import it.unicam.pnm.outbound.adapter.persistence.entity.AziendaCategoriaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface ComuneRepository extends JpaRepository<ComuneEntity, UUID>, JpaSpecificationExecutor<ComuneEntity> {
-
+public interface AziendaCategoriaRepository extends JpaRepository<AziendaCategoriaEntity, UUID>, JpaSpecificationExecutor<AziendaCategoriaEntity> {
 }

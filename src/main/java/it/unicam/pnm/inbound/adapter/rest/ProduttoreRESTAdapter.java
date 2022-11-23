@@ -30,7 +30,7 @@ public class ProduttoreRESTAdapter {
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<ProduttoreDTO>> searchProduttore(@Valid @RequestBody ProduttoreCriteria criteria, Pageable pageRequest) {
+    public ResponseEntity<Page<ProduttoreDTO>> searchProduttore(ProduttoreCriteria criteria, Pageable pageRequest) {
         Page<ProduttoreDTO> dtos = produttoreInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

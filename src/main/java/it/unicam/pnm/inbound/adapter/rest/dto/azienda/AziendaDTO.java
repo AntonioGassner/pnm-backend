@@ -1,5 +1,8 @@
 package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
 
+import it.unicam.pnm.inbound.adapter.rest.dto.comune.ComuneDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.produttore.ProduttoreDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.provincia.ProvinciaDTO;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -18,9 +21,9 @@ public class AziendaDTO implements Serializable {
 
     private String email;
 
-    private UUID produttore;
+    private ProduttoreDTO produttore;
 
-    private UUID comune;
+    private ComuneDTO comune;
 
-    private UUID provincia;
+    private ProvinciaDTO provincia;
 }

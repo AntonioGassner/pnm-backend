@@ -1,19 +1,20 @@
 package it.unicam.pnm.outbound.adapter.persistence.specification;
 
-import it.unicam.pnm.inbound.adapter.rest.dto.provincia.ProvinciaCriteria;
-import it.unicam.pnm.outbound.adapter.persistence.entity.ProvinciaEntity;
+
+import it.unicam.pnm.outbound.adapter.persistence.entity.CategoriaEntity;
 import org.springframework.data.jpa.domain.Specification;
 
-public class ProvinciaSpecification extends AbstractSpecification<ProvinciaEntity> {
+public class CategoriaSpecification extends AbstractSpecification<CategoriaEntity> {
 
-    public Specification<ProvinciaEntity> filter(ProvinciaCriteria criteria) {
+    public Specification<CategoriaEntity> filter(it.unicam.pnm.inbound.adapter.rest.dto.categoria.CategoriaCriteria criteria) {
 
 //        String flagName = "flagElimina";
 //        boolean flagValue = false;
 
-        Specification<ProvinciaEntity> specification =
+        Specification<CategoriaEntity> specification =
                 super.applyInUUIDFilter(criteria.getId(), "id")
                         .and(super.applySearchFilter(criteria.getNome(), "nome"));
         return specification;
     }
+
 }

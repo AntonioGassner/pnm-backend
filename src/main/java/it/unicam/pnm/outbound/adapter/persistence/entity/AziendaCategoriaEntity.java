@@ -7,30 +7,30 @@ import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
 @Entity
-@Table(name = "comune")
-public class ComuneEntity implements Serializable {
+@Table(name = "azienda_categoria")
+public class AziendaCategoriaEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
-    @NotBlank
-    @Column(name = "nome")
-    private String nome;
-
     @NotNull
-    @JoinColumn(name = "id_provincia", referencedColumnName = "id")
+    @JoinColumn(name = "id_azienda", referencedColumnName = "id")
     @ManyToOne(cascade = CascadeType.PERSIST)
     @Fetch(FetchMode.SELECT)
-    private ProvinciaEntity provincia;
+    private AziendaEntity azienda;
+
+    @NotNull
+    @JoinColumn(name = "id_categoria", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @Fetch(FetchMode.SELECT)
+    private CategoriaEntity categoria;
 
 }

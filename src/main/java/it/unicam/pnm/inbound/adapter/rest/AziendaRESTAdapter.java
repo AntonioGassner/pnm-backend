@@ -30,7 +30,7 @@ public class AziendaRESTAdapter {
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<AziendaDTO>> searchAzienda(@Valid @RequestBody AziendaCriteria criteria, Pageable pageRequest) {
+    public ResponseEntity<Page<AziendaDTO>> searchAzienda(AziendaCriteria criteria, Pageable pageRequest) {
         Page<AziendaDTO> dtos = aziendaInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

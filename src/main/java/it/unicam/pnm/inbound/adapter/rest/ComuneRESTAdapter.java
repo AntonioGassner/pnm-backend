@@ -30,7 +30,7 @@ public class ComuneRESTAdapter {
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<ComuneDTO>> searchComune(@Valid @RequestBody ComuneCriteria criteria, Pageable pageRequest) {
+    public ResponseEntity<Page<ComuneDTO>> searchComune(ComuneCriteria criteria, Pageable pageRequest) {
         Page<ComuneDTO> dtos = comuneInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

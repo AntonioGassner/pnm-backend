@@ -4,6 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
+// TODO delete is not mapped or something
+//  Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' not supported]
+
+// TODO search doesen't pass over criteria or something since every field i put in i always get all results
+
 // TODO security layer
 
 // TODO session tokens

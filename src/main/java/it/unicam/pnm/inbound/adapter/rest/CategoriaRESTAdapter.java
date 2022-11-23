@@ -32,7 +32,7 @@ public class CategoriaRESTAdapter {
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<CategoriaDTO>> searchCategoria(@Valid @RequestBody CategoriaCriteria criteria, Pageable pageRequest) {
+    public ResponseEntity<Page<CategoriaDTO>> searchCategoria(CategoriaCriteria criteria, Pageable pageRequest) {
         Page<CategoriaDTO> dtos = categoriaInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

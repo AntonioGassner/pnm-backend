@@ -4,7 +4,13 @@ import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCreateDTO;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDTO;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.aziendaCategoria.AziendaCategoriaCreateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.aziendaCategoria.AziendaCategoriaCriteria;
+import it.unicam.pnm.inbound.adapter.rest.dto.aziendaCategoria.AziendaCategoriaDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.aziendaCategoria.AziendaCategoriaUpdateDTO;
+import it.unicam.pnm.inbound.port.AziendaCategoriaInboundPort;
 import it.unicam.pnm.inbound.port.AziendaInboundPort;
+import it.unicam.pnm.outbound.port.AziendaCategoriaOutboundPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,18 +26,18 @@ import java.util.UUID;
 public class AziendaCategoriaRESTAdapter {
 
     @Autowired
-    private AziendaInboundPort aziendaInboundPort;
+    private AziendaCategoriaInboundPort aziendaCategoriaInboundPort;
 
     @PostMapping
-    public ResponseEntity<AziendaDTO> createAzienda(@Valid @RequestBody AziendaCreateDTO dto) {
-        return new ResponseEntity<>(aziendaInboundPort.create(dto), HttpStatus.OK);
+    public ResponseEntity<AziendaCategoriaDTO> createAziendaCategoria(@Valid @RequestBody AziendaCategoriaCreateDTO dto) {
+        return new ResponseEntity<>(aziendaCategoriaInboundPort.create(dto), HttpStatus.OK);
     }
 
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<AziendaDTO>> searchAzienda(@Valid @RequestBody AziendaCriteria criteria, Pageable pageRequest) {
-        Page<AziendaDTO> dtos = aziendaInboundPort.search(criteria, pageRequest);
+    public ResponseEntity<Page<AziendaCategoriaDTO>> searchAziendaCategoria(AziendaCategoriaCriteria criteria, Pageable pageRequest) {
+        Page<AziendaCategoriaDTO> dtos = aziendaCategoriaInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
@@ -40,13 +46,13 @@ public class AziendaCategoriaRESTAdapter {
     }
 
     @PutMapping
-    public ResponseEntity<AziendaDTO> updateAzienda(@Valid @RequestBody AziendaUpdateDTO dto) {
-        return new ResponseEntity<>(aziendaInboundPort.update(dto), HttpStatus.OK);
+    public ResponseEntity<AziendaCategoriaDTO> updateAziendaCategoria(@Valid @RequestBody AziendaCategoriaUpdateDTO dto) {
+        return new ResponseEntity<>(aziendaCategoriaInboundPort.update(dto), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteAzienda(@PathVariable("id") UUID id) {
-        aziendaInboundPort.delete(id);
+    public ResponseEntity<?> deleteAziendaCategoria(@PathVariable("id") UUID id) {
+        aziendaCategoriaInboundPort.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

@@ -30,7 +30,7 @@ public class ProvinciaRESTAdapter {
     // TODO getByIds?
 
     @GetMapping("/ricerca")
-    public ResponseEntity<Page<ProvinciaDTO>> searchProvincia(@Valid @RequestBody ProvinciaCriteria criteria, Pageable pageRequest) {
+    public ResponseEntity<Page<ProvinciaDTO>> searchProvincia(ProvinciaCriteria criteria, Pageable pageRequest) {
         Page<ProvinciaDTO> dtos = provinciaInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

@@ -13,7 +13,7 @@ import java.util.UUID;
 @Data
 @Accessors(chain = true)
 @Entity
-@Table(name = "pnm_azienda_categoria")
+@Table(name = "azienda_categoria")
 public class AziendaCategoriaEntity {
 
     @Id

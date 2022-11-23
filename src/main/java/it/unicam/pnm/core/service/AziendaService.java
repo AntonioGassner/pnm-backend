@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
+// @Slf4j logging TODO
 public class AziendaService implements AziendaInboundPort {
 
     @Autowired

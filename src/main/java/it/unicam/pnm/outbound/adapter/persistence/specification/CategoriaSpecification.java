@@ -12,7 +12,7 @@ public class CategoriaSpecification extends AbstractSpecification<CategoriaEntit
 //        boolean flagValue = false;
 
         Specification<CategoriaEntity> specification =
-                super.applyUUIDFilter(criteria.getId(), "id")
+                super.applyInUUIDFilter(criteria.getId(), "id")
                         .and(super.applySearchFilter(criteria.getNome(), "nome"));
         return specification;
     }

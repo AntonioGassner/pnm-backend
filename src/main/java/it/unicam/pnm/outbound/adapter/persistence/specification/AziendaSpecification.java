@@ -16,7 +16,7 @@ public class AziendaSpecification extends AbstractSpecification<AziendaEntity> {
 //        boolean flagValue = false;
 
         Specification<AziendaEntity> specification =
-                super.applyUUIDFilter(criteria.getId(), "id")
+                super.applyInUUIDFilter(criteria.getId(), "id")
                         .and(super.applySearchFilter(criteria.getNome(), "nome"))
                         .and(this.buildProduttoreSpecification(criteria))
                         .and(this.buildComuneSpecification(criteria))

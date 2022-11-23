@@ -13,7 +13,6 @@ public class CategoriaCreateDTO implements Serializable {
     @NotBlank
     private String nome;
 
-    @NotBlank
     private String descrizione;
 
 }

@@ -16,7 +16,6 @@ public class CategoriaUpdateDTO implements Serializable {
     @NotBlank
     private String nome;
 
-    @NotBlank
     private String descrizione;
 
 }

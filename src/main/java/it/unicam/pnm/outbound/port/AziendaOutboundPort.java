@@ -13,6 +13,7 @@ public interface AziendaOutboundPort {
 
     Page<AziendaModel> search(AziendaCriteria criteria, Pageable pageRequest);
 
+    // ??
     AziendaModel getById(UUID id);
 
     boolean existsById(UUID id);

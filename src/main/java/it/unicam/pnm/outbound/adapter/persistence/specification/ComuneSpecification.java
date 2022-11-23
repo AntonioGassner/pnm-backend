@@ -17,7 +17,7 @@ public class ComuneSpecification extends AbstractSpecification<ComuneEntity> {
 //        boolean flagValue = false;
 
         Specification<ComuneEntity> specification =
-                super.applyUUIDFilter(criteria.getId(), "id")
+                super.applyInUUIDFilter(criteria.getId(), "id")
                         .and(super.applySearchFilter(criteria.getNome(), "nome"))
                         .and(this.buildProvinciaSpecification(criteria));
 

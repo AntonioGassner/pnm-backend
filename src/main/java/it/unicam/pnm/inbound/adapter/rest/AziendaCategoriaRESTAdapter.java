@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/azienda")
+@RequestMapping("/api/azienda-categoria")
 public class AziendaCategoriaRESTAdapter {
 
     @Autowired

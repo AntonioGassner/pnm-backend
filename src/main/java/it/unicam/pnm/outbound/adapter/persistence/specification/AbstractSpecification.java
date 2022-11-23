@@ -19,6 +19,17 @@ public abstract class AbstractSpecification<ENTITY> extends QueryService<ENTITY>
         return this.buildSpecification(filter, root -> root.get(fieldName));
     }
 
+    protected <ENTITY1, ENTITY2> Specification<ENTITY> applyJoinInFilterGeneric(List<UUID> list, String fieldName,
+                                                                                Join<ENTITY1, ENTITY2> join) {
+        Specification<ENTITY> specification = Specification.where(null);
+        if (!list.isEmpty()) {
+            UUIDFilter filter = new UUIDFilter();
+            filter.setIn(new ArrayList<>(list));
+            specification = specification.or(buildSpecification(filter, root -> join.get(fieldName)));
+        }
+        return specification;
+    }
+
     protected Specification<ENTITY> applyUUIDFilter(List<UUID> list, String fieldName) {
         Specification<ENTITY> specification = Specification.where(null);
         if (!list.isEmpty()) {

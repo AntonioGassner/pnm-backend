@@ -13,6 +13,8 @@ import java.util.UUID;
 @Accessors(chain = true)
 public class AziendaCategoriaCriteria {
 
+    List<UUID> id = new ArrayList<>();
+
     List<UUID> azienda = new ArrayList<>();
 
     List<UUID> categoria = new ArrayList<>();

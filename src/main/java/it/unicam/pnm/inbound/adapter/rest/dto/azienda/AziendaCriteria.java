@@ -13,6 +13,8 @@ import java.util.UUID;
 @Accessors(chain = true)
 public class AziendaCriteria {
 
+    List<UUID> id = new ArrayList<>();
+
     List<StringFilter> nome = new ArrayList<>();
 
     List<UUID> produttore = new ArrayList<>();

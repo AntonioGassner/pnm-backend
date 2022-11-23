@@ -4,7 +4,9 @@ import it.unicam.pnm.core.mapper.outbound.ComuneEntityMapper;
 import it.unicam.pnm.core.model.ComuneModel;
 import it.unicam.pnm.inbound.adapter.rest.dto.comune.ComuneCriteria;
 import it.unicam.pnm.outbound.adapter.persistence.entity.ComuneEntity;
+import it.unicam.pnm.outbound.adapter.persistence.entity.ProvinciaEntity;
 import it.unicam.pnm.outbound.adapter.persistence.repository.ComuneRepository;
+import it.unicam.pnm.outbound.adapter.persistence.repository.ProvinciaRepository;
 import it.unicam.pnm.outbound.adapter.persistence.specification.ComuneSpecification;
 import it.unicam.pnm.outbound.port.ComuneOutboundPort;
 import lombok.RequiredArgsConstructor;
@@ -27,9 +29,21 @@ public class ComunePersistence extends ComuneSpecification implements ComuneOutb
     @Autowired
     private ComuneEntityMapper comuneEntityMapper;
 
+    @Autowired
+    private ProvinciaRepository provinciaRepository;
+
     @Override
     public ComuneModel save(ComuneModel model) {
         ComuneEntity entityToSave = comuneEntityMapper.fromModelToEntity(model);
+
+        if (model.getProvincia() != null && model.getProvincia().getId() != null) {
+            ProvinciaEntity provincia = provinciaRepository.findById(model.getProvincia().getId())
+                    .stream()
+                    .findAny()
+                    .orElse(null);
+            entityToSave.setProvincia(provincia);
+        }
+
         ComuneEntity savedEntity = comuneRepository.save(entityToSave);
         return comuneEntityMapper.fromEntityToModel(savedEntity);
     }

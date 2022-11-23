@@ -12,7 +12,8 @@ public class ProvinciaSpecification extends AbstractSpecification<ProvinciaEntit
 //        boolean flagValue = false;
 
         Specification<ProvinciaEntity> specification =
-                super.applySearchFilter(criteria.getNome(), "nome");
+                super.applyUUIDFilter(criteria.getId(), "id")
+                        .and(super.applySearchFilter(criteria.getNome(), "nome"));
         return specification;
     }
 }

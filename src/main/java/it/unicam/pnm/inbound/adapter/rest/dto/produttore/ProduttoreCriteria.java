@@ -6,10 +6,13 @@ import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
 public class ProduttoreCriteria {
+
+    List<UUID> id = new ArrayList<>();
 
     List<StringFilter> nome = new ArrayList<>();
 

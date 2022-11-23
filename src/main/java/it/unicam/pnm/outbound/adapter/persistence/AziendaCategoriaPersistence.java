@@ -3,8 +3,10 @@ package it.unicam.pnm.outbound.adapter.persistence;
 import it.unicam.pnm.core.mapper.outbound.AziendaCategoriaEntityMapper;
 import it.unicam.pnm.core.model.AziendaCategoriaModel;
 import it.unicam.pnm.inbound.adapter.rest.dto.aziendaCategoria.AziendaCategoriaCriteria;
-import it.unicam.pnm.outbound.adapter.persistence.entity.AziendaCategoriaEntity;
+import it.unicam.pnm.outbound.adapter.persistence.entity.*;
 import it.unicam.pnm.outbound.adapter.persistence.repository.AziendaCategoriaRepository;
+import it.unicam.pnm.outbound.adapter.persistence.repository.AziendaRepository;
+import it.unicam.pnm.outbound.adapter.persistence.repository.CategoriaRepository;
 import it.unicam.pnm.outbound.adapter.persistence.specification.AziendaCategoriaSpecification;
 import it.unicam.pnm.outbound.port.AziendaCategoriaOutboundPort;
 import lombok.RequiredArgsConstructor;
@@ -27,9 +29,32 @@ public class AziendaCategoriaPersistence extends AziendaCategoriaSpecification i
     @Autowired
     private AziendaCategoriaEntityMapper aziendaCategoriaEntityMapper;
 
+    @Autowired
+    private AziendaRepository aziendaRepository;
+
+    @Autowired
+    private CategoriaRepository categoriaRepository;
+
     @Override
     public AziendaCategoriaModel save(AziendaCategoriaModel model) {
         AziendaCategoriaEntity entityToSave = aziendaCategoriaEntityMapper.fromModelToEntity(model);
+
+        if (model.getAzienda() != null && model.getAzienda().getId() != null) {
+            AziendaEntity azienda = aziendaRepository.findById(model.getAzienda().getId())
+                    .stream()
+                    .findAny()
+                    .orElse(null);
+            entityToSave.setAzienda(azienda);
+        }
+
+        if (model.getCategoria() != null && model.getCategoria().getId() != null) {
+            CategoriaEntity categoria = categoriaRepository.findById(model.getCategoria().getId())
+                    .stream()
+                    .findAny()
+                    .orElse(null);
+            entityToSave.setCategoria(categoria);
+        }
+
         AziendaCategoriaEntity savedEntity = aziendaCategoriaRepository.save(entityToSave);
         return aziendaCategoriaEntityMapper.fromEntityToModel(savedEntity);
     }

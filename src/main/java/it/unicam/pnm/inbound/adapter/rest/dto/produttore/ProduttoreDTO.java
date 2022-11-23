@@ -27,4 +27,6 @@ public class ProduttoreDTO implements Serializable {
     // vediamo se riusciamo a trovargli un nome migliore
     private boolean tesseramentoAttivo;
 
+    // TODO aggiungere una LocalDate che definisce quando scade il tesseramento
+
 }

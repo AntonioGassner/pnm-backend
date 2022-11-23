@@ -12,7 +12,8 @@ public class ProduttoreSpecification extends AbstractSpecification<ProduttoreEnt
 //        boolean flagValue = false;
 
         Specification<ProduttoreEntity> specification =
-                super.applySearchFilter(criteria.getNome(), "nome")
+                super.applyUUIDFilter(criteria.getId(), "id")
+                        .and(super.applySearchFilter(criteria.getNome(), "nome"))
                         .and(super.applySearchFilter(criteria.getCognome(), "cognome"));
 
         return specification;

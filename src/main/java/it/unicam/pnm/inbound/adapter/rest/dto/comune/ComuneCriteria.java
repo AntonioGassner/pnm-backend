@@ -13,6 +13,8 @@ import java.util.UUID;
 @Accessors(chain = true)
 public class ComuneCriteria {
 
+    List<UUID> id = new ArrayList<>();
+
     List<StringFilter> nome = new ArrayList<>();
 
     List<UUID> provincia = new ArrayList<>();

@@ -17,3 +17,6 @@ spring:
     username: postgres #Leave as is
     password: pass #Put password you used during postgres installation
     driverClassName: org.postgresql.Driver
+#springdoc:
+#  api-docs:
+#    path: localhost:8080/open-api.yaml

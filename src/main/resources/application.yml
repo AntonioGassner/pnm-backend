@@ -6,6 +6,7 @@ spring:
   jpa:
     database: POSTGRESQL
     show-sql: true
+    database-platform: io.github.jhipster.domain.util.FixedPostgreSQL10Dialect
     hibernate:
       ddl-auto: update
       # Set this to "create" the first time you run the project with your database open and running
@@ -17,6 +18,10 @@ spring:
     username: postgres #Leave as is
     password: pass #Put password you used during postgres installation
     driverClassName: org.postgresql.Driver
+
+server:
+  port: 8080
+  address: localhost
 #springdoc:
 #  api-docs:
 #    path: localhost:8080/open-api.yaml

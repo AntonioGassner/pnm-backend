@@ -1,9 +1,6 @@
 package it.unicam.pnm.inbound.adapter.rest;
 
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCreateDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.*;
 import it.unicam.pnm.inbound.port.AziendaInboundPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,8 +23,6 @@ public class AziendaRESTAdapter {
     public ResponseEntity<AziendaDTO> createAzienda(@Valid @RequestBody AziendaCreateDTO dto) {
         return new ResponseEntity<>(aziendaInboundPort.create(dto), HttpStatus.OK);
     }
-
-    // TODO getByIds?
 
     @GetMapping("/ricerca")
     public ResponseEntity<Page<AziendaDTO>> searchAzienda(AziendaCriteria criteria, Pageable pageRequest) {

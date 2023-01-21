@@ -9,7 +9,6 @@ import it.unicam.pnm.outbound.adapter.persistence.entity.ProduttoreEntity;
 import it.unicam.pnm.outbound.adapter.persistence.entity.ProvinciaEntity;
 import it.unicam.pnm.outbound.adapter.persistence.repository.AziendaRepository;
 import it.unicam.pnm.outbound.adapter.persistence.repository.ComuneRepository;
-import it.unicam.pnm.outbound.adapter.persistence.repository.ProduttoreRepository;
 import it.unicam.pnm.outbound.adapter.persistence.repository.ProvinciaRepository;
 import it.unicam.pnm.outbound.adapter.persistence.specification.AziendaSpecification;
 import it.unicam.pnm.outbound.port.AziendaOutboundPort;

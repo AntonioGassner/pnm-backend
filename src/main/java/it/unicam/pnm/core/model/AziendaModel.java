@@ -12,16 +12,50 @@ public class AziendaModel implements Serializable {
 
     private UUID id;
 
-    private String nome;
+    private String nomeProduttore;
 
-    private String numeroPubblico;
+    private String cognomeProduttore;
 
-    private String email;
+    private String partitaIva;
 
-    private ProduttoreModel produttore;
+    private String numeroprivato;
 
-    private ComuneModel comune;
+    private String emailPrivata;
 
-    private ProvinciaModel provincia;
+    private String codicefiscale;
+
+    private boolean tesseramentoAttivo;
+
+    private String nomeAzienda;
+
+    private String ragioneSociale;
+
+    private String numeroAzienda;
+
+    private String emailAzienda;
+
+    private String comune;
+
+    private String provincia;
+
+    private String indirizzo;
+
+    private String cap;
+
+    private String descrizioneBreve;
+
+    private String descrizioneLunga;
+
+    private String linkFacebook;
+
+    private String linkYoutube;
+
+    private String linkInstagram;
+
+    private String linkWebsite;
+
+    private String linkTicToc;
+
+    private String tipoProdotto;
 
 }

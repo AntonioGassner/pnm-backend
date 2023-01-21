@@ -15,22 +15,49 @@ public class AziendaUpdateDTO implements Serializable {
 
     private UUID id;
 
-    @NotBlank
-    private String nome;
+    private String nomeProduttore;
 
-    @NotBlank
-    private String numeroPubblico;
+    private String cognomeProduttore;
 
-    @Email
-    @NotBlank
-    private String email;
+    private String partitaIva;
 
-    @NotNull
-    private UUID produttore;
+    private String numeroprivato;
 
-    @NotNull
-    private UUID comune;
+    private String emailPrivata;
 
-    @NotNull
-    private UUID provincia;
+    private String codicefiscale;
+
+    private boolean tesseramentoAttivo;
+
+    private String nomeAzienda;
+
+    private String ragioneSociale;
+
+    private String numeroAzienda;
+
+    private String emailAzienda;
+
+    private String comune;
+
+    private String provincia;
+
+    private String indirizzo;
+
+    private String cap;
+
+    private String descrizioneBreve;
+
+    private String descrizioneLunga;
+
+    private String linkFacebook;
+
+    private String linkYoutube;
+
+    private String linkInstagram;
+
+    private String linkWebsite;
+
+    private String linkTicToc;
+
+    private String tipoProdotto;
 }

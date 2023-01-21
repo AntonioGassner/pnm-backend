@@ -25,4 +25,6 @@ public class AziendaCriteria {
 
     List<UUID> provincia = new ArrayList<>();
 
+    // todo definire i criteri di ricerca
+
 }

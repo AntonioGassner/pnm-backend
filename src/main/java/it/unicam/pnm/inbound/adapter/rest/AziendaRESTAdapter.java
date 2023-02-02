@@ -1,5 +1,6 @@
 package it.unicam.pnm.inbound.adapter.rest;
 
+import it.unicam.pnm.core.model.AziendaModel;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.*;
 import it.unicam.pnm.inbound.port.AziendaInboundPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.UUID;
 
 @RestController
@@ -24,7 +26,7 @@ public class AziendaRESTAdapter {
         return new ResponseEntity<>(aziendaInboundPort.create(dto), HttpStatus.OK);
     }
 
-    @GetMapping("/ricerca")
+    @GetMapping()
     public ResponseEntity<Page<AziendaDTO>> searchAzienda(AziendaCriteria criteria, Pageable pageRequest) {
         Page<AziendaDTO> dtos = aziendaInboundPort.search(criteria, pageRequest);
         if (dtos.isEmpty()) {
@@ -34,9 +36,55 @@ public class AziendaRESTAdapter {
         }
     }
 
+    @GetMapping("/preview")
+    public ResponseEntity<Page<AziendaDTO>> searchAziendaPreview(AziendaCriteria criteria, Pageable pageRequest) {
+        Page<AziendaDTO> dtos = aziendaInboundPort.searchPreview(criteria, pageRequest);
+        if (dtos.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(dtos, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AziendaDTO> getAziendaById(UUID id) {
+        AziendaDTO dto = aziendaInboundPort.getById(id);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+
+    }
+
+    @GetMapping("/dettaglio/{id}")
+    public ResponseEntity<AziendaDTO> getAziendaDettaglioById(UUID id) {
+        AziendaDTO dto = aziendaInboundPort.getDettaglioById(id);
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+
+    }
+
+    @GetMapping("/mailing-list")
+    public ResponseEntity<Page<AziendaModel>> getContactList() {
+        Page<AziendaModel> contactList = aziendaInboundPort.getContactList();
+        if (contactList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(contactList, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/login")
+    ResponseEntity<Boolean> validateLogin(String user, String pass){
+        return new ResponseEntity<>(aziendaInboundPort.validateLogin(user, pass), HttpStatus.OK);
+    }
+
+
     @PutMapping
     public ResponseEntity<AziendaDTO> updateAzienda(@Valid @RequestBody AziendaUpdateDTO dto) {
         return new ResponseEntity<>(aziendaInboundPort.update(dto), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> attivaTesseramento(@PathVariable("id") UUID id) {
+        aziendaInboundPort.attivaTesseramento(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

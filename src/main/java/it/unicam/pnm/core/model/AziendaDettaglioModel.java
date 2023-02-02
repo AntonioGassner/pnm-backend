@@ -1,17 +1,14 @@
-package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
+package it.unicam.pnm.core.model;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
-public class AziendaCreateDTO implements Serializable {
+public class AziendaDettaglioModel implements Serializable {
 
     private UUID id;
 
@@ -21,17 +18,7 @@ public class AziendaCreateDTO implements Serializable {
 
     private String partitaIva;
 
-    private String numeroPrivato;
-
-    private String emailPrivata;
-
-    private String codiceFiscale;
-
-    private boolean tesseramentoAttivo;
-
     private String nomeAzienda;
-
-    private String ragioneSociale;
 
     private String numeroAzienda;
 
@@ -44,8 +31,6 @@ public class AziendaCreateDTO implements Serializable {
     private String indirizzo;
 
     private String cap;
-
-    private String descrizioneBreve;
 
     private String descrizioneLunga;
 
@@ -60,7 +45,4 @@ public class AziendaCreateDTO implements Serializable {
     private String linkTicToc;
 
     private String tipoProdotto;
-
-    private String password;
-
 }

@@ -1,4 +1,4 @@
-package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
+package it.unicam.pnm.core.model;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @Accessors(chain = true)
-public class AziendaPreviewDTO implements Serializable {
+public class AziendaPreviewModel implements Serializable {
 
     private UUID id;
 

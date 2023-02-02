@@ -2,10 +2,7 @@ package it.unicam.pnm.core.service;
 
 import it.unicam.pnm.core.mapper.inbound.AziendaDTOMapper;
 import it.unicam.pnm.core.model.AziendaModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCreateDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.*;
 import it.unicam.pnm.inbound.port.AziendaInboundPort;
 import it.unicam.pnm.outbound.port.AziendaOutboundPort;
 import it.unicam.pnm.web.rest.errors.NotFoundException;
@@ -14,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Service
@@ -40,9 +38,35 @@ public class AziendaService implements AziendaInboundPort {
     }
 
     @Override
+    public Page<AziendaDTO> searchPreview(AziendaCriteria criteria, Pageable pageRequest) {
+        Page<AziendaModel> models = aziendaPersistence.searchPreview(criteria, pageRequest);
+        return models.map(model -> this.aziendaMapper.toDto(model));
+    }
+
+    @Override
     public Page<AziendaDTO> search(AziendaCriteria criteria, Pageable pageRequest) {
         Page<AziendaModel> models = aziendaPersistence.search(criteria, pageRequest);
         return models.map(model -> this.aziendaMapper.toDto(model));
+    }
+
+    @Override
+    public AziendaDTO getById(UUID id) {
+        return this.aziendaMapper.toDto(aziendaPersistence.getById(id));
+    }
+
+    @Override
+    public AziendaDTO getDettaglioById(UUID id) {
+        return this.aziendaMapper.toDto(aziendaPersistence.getDettaglioById(id));
+    }
+
+    @Override
+    public Page<AziendaModel> getContactList() {
+        return aziendaPersistence.getContactList();
+    }
+
+    @Override
+    public boolean validateLogin(String user, String pass){
+        return this.aziendaPersistence.validateLogin(user, pass);
     }
 
     @Override
@@ -51,6 +75,12 @@ public class AziendaService implements AziendaInboundPort {
         AziendaDTO aziendaDto = aziendaMapper.fromUpdateDTO(dto);
         //this.validate(aziendaDto);
         return aziendaMapper.toDto(aziendaPersistence.save(aziendaMapper.toModel(aziendaDto)));
+    }
+
+    @Override
+    public void attivaTesseramento(UUID id) {
+        this.checkExists(id);
+        aziendaPersistence.attivaTesseramento(id);
     }
 
     @Override

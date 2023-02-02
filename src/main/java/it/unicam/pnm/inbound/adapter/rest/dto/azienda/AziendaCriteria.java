@@ -17,14 +17,10 @@ public class AziendaCriteria {
 
     List<UUID> id = new ArrayList<>();
 
-    List<StringFilter> nome = new ArrayList<>();
+    List<StringFilter> nomeAzienda;
 
-    List<UUID> produttore = new ArrayList<>();
+    List<StringFilter> provincia;
 
-    List<UUID> comune = new ArrayList<>();
-
-    List<UUID> provincia = new ArrayList<>();
-
-    // todo definire i criteri di ricerca
+    List<StringFilter> tipoProdotto;
 
 }

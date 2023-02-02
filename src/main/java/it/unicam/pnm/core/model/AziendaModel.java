@@ -18,11 +18,11 @@ public class AziendaModel implements Serializable {
 
     private String partitaIva;
 
-    private String numeroprivato;
+    private String numeroPrivato;
 
     private String emailPrivata;
 
-    private String codicefiscale;
+    private String codiceFiscale;
 
     private boolean tesseramentoAttivo;
 
@@ -57,5 +57,7 @@ public class AziendaModel implements Serializable {
     private String linkTicToc;
 
     private String tipoProdotto;
+
+    private String password;
 
 }

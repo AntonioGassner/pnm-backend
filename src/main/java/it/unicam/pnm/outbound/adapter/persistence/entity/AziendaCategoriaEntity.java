@@ -21,11 +21,11 @@ public class AziendaCategoriaEntity {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private UUID id;
 
-    @NotNull
-    @JoinColumn(name = "id_azienda", referencedColumnName = "id")
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @Fetch(FetchMode.SELECT)
-    private AziendaEntity azienda;
+//    @NotNull
+//    @JoinColumn(name = "id_azienda", referencedColumnName = "id")
+//    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @Fetch(FetchMode.SELECT)
+//    private AziendaEntity azienda;
 
     @NotNull
     @JoinColumn(name = "id_categoria", referencedColumnName = "id")

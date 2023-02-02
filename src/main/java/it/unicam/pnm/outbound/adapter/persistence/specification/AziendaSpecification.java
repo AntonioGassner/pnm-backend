@@ -19,41 +19,5 @@ public class AziendaSpecification extends AbstractSpecification<AziendaEntity> {
                         .and(super.applySearchFilter(criteria.getTipoProdotto(), "tipoProdotto"));
         return specification;
     }
-
-//    protected Specification<AziendaEntity> buildComuneSpecification(AziendaCriteria criteria) {
-//        return (root, criteriaQuery, criteriaBuilder) -> {
-//
-//            Specification<AziendaEntity> specification = Specification.where(null);
-//
-//            if (criteria.getComune() != null && !criteria.getComune().isEmpty()) {
-//
-//                // costruisco la join per applicare i criteri di ricerca sul comune
-//                Join<AziendaEntity, ComuneEntity> joinComune = root
-//                        .join(AziendaEntity_.COMUNE, JoinType.INNER);
-//
-//                specification = super.applyJoinInFilterGeneric(criteria.getComune(),
-//                        ComuneEntity_.ID, joinComune);
-//            }
-//            return specification.toPredicate(root, criteriaQuery, criteriaBuilder);
-//        };
-//    }
-//
-//    protected Specification<AziendaEntity> buildProvinciaSpecification(AziendaCriteria criteria) {
-//        return (root, criteriaQuery, criteriaBuilder) -> {
-//
-//            Specification<AziendaEntity> specification = Specification.where(null);
-//
-//            if (criteria.getProvincia() != null && !criteria.getProvincia().isEmpty()) {
-//
-//                // costruisco la join per applicare i criteri di ricerca sulla provincia
-//                Join<AziendaEntity, ProvinciaEntity> joinProvincia = root
-//                        .join(AziendaEntity_.PROVINCIA, JoinType.INNER);
-//
-//                specification = super.applyJoinInFilterGeneric(criteria.getProvincia(),
-//                        ProvinciaEntity_.ID, joinProvincia);
-//            }
-//            return specification.toPredicate(root, criteriaQuery, criteriaBuilder);
-//        };
-//    }
     
 }

@@ -13,8 +13,6 @@ import java.util.UUID;
 @Accessors(chain = true)
 public class AziendaCreateDTO implements Serializable {
 
-    private UUID id;
-
     private String nomeProduttore;
 
     private String cognomeProduttore;

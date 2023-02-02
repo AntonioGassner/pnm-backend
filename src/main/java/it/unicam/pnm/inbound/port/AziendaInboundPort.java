@@ -13,17 +13,9 @@ public interface AziendaInboundPort {
 
     AziendaDTO create(AziendaCreateDTO dto);
 
-    Page<AziendaDTO> searchPreview(AziendaCriteria criteria, Pageable pageRequest);
-
     Page<AziendaDTO> search(AziendaCriteria criteria, Pageable pageRequest);
 
-    AziendaDTO getById(UUID id);
-
-    AziendaDTO getDettaglioById(UUID id);
-
-    Page<AziendaModel> getContactList();
-
-    boolean validateLogin(String user, String pass);
+    AziendaDTO validateLogin(String user, String pass);
 
     AziendaDTO update(AziendaUpdateDTO dto);
 

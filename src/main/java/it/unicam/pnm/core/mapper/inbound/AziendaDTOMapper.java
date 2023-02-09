@@ -8,16 +8,11 @@ import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", uses = {ProvinciaDTOMapper.class, ComuneDTOMapper.class, ProduttoreDTOMapper.class})
+@Mapper(componentModel = "spring", uses = {})
 public interface AziendaDTOMapper extends DTOMapper<AziendaDTO, AziendaModel> {
 
-    @Mapping(target = "provincia.id", source = "provincia")
-    @Mapping(target = "comune.id", source = "comune")
-    @Mapping(target = "produttore.id", source = "produttore")
+
     AziendaDTO fromCreateDTO(AziendaCreateDTO dto);
 
-    @Mapping(target = "provincia.id", source = "provincia")
-    @Mapping(target = "comune.id", source = "comune")
-    @Mapping(target = "produttore.id", source = "produttore")
     AziendaDTO fromUpdateDTO(AziendaUpdateDTO dto);
 }

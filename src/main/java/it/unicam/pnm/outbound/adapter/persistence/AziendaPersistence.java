@@ -4,13 +4,7 @@ import it.unicam.pnm.core.mapper.outbound.AziendaEntityMapper;
 import it.unicam.pnm.core.model.AziendaModel;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
 import it.unicam.pnm.outbound.adapter.persistence.entity.AziendaEntity;
-import it.unicam.pnm.outbound.adapter.persistence.entity.ComuneEntity;
-import it.unicam.pnm.outbound.adapter.persistence.entity.ProduttoreEntity;
-import it.unicam.pnm.outbound.adapter.persistence.entity.ProvinciaEntity;
 import it.unicam.pnm.outbound.adapter.persistence.repository.AziendaRepository;
-import it.unicam.pnm.outbound.adapter.persistence.repository.ComuneRepository;
-import it.unicam.pnm.outbound.adapter.persistence.repository.ProduttoreRepository;
-import it.unicam.pnm.outbound.adapter.persistence.repository.ProvinciaRepository;
 import it.unicam.pnm.outbound.adapter.persistence.specification.AziendaSpecification;
 import it.unicam.pnm.outbound.port.AziendaOutboundPort;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -33,45 +28,17 @@ public class AziendaPersistence extends AziendaSpecification implements AziendaO
     @Autowired
     private AziendaEntityMapper aziendaEntityMapper;
 
-    @Autowired
-    private ProvinciaRepository provinciaRepository;
-
-    @Autowired
-    private ComuneRepository comuneRepository;
-
-    @Autowired
-    private ProduttoreRepository produttoreRepository;
-
     @Override
     public AziendaModel save(AziendaModel model) {
         AziendaEntity entityToSave = aziendaEntityMapper.fromModelToEntity(model);
-
-        if (model.getProvincia() != null && model.getProvincia().getId() != null) {
-            ProvinciaEntity provincia = provinciaRepository.findById(model.getProvincia().getId())
-                    .stream()
-                    .findAny()
-                    .orElse(null);
-            entityToSave.setProvincia(provincia);
-        }
-
-        if (model.getComune() != null && model.getComune().getId() != null) {
-            ComuneEntity comune = comuneRepository.findById(model.getComune().getId())
-                    .stream()
-                    .findAny()
-                    .orElse(null);
-            entityToSave.setComune(comune);
-        }
-
-        if (model.getProduttore() != null && model.getProduttore().getId() != null) {
-            ProduttoreEntity produttore = produttoreRepository.findById(model.getProduttore().getId())
-                    .stream()
-                    .findAny()
-                    .orElse(null);
-            entityToSave.setProduttore(produttore);
-        }
-
         AziendaEntity savedEntity = aziendaRepository.save(entityToSave);
         return aziendaEntityMapper.fromEntityToModel(savedEntity);
+    }
+
+    @Override
+    public List<AziendaModel> findByIds(List<UUID> ids) {
+        List<AziendaEntity> entities = aziendaRepository.findAllById(ids);
+        return aziendaEntityMapper.fromEntitiesToModels(entities);
     }
 
     @Override
@@ -81,13 +48,18 @@ public class AziendaPersistence extends AziendaSpecification implements AziendaO
     }
 
     @Override
-    public AziendaModel getById(UUID id) {
-        return aziendaEntityMapper.fromEntityToModel(aziendaRepository.getReferenceById(id));
+    public AziendaModel validateLogin(String user, String pass) {
+        return aziendaEntityMapper.fromEntityToModel(aziendaRepository.getByEmailPrivataAndPassword(user, pass));
     }
 
     @Override
     public boolean existsById(UUID id) {
         return aziendaRepository.existsById(id);
+    }
+
+    @Override
+    public void setTesseramentoAttivo(UUID id) {
+        aziendaRepository.attivaTesseramento(id);
     }
 
     @Override

@@ -6,6 +6,7 @@ import lombok.experimental.Accessors;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -14,22 +15,52 @@ import java.util.UUID;
 public class AziendaCreateDTO implements Serializable {
 
     @NotBlank
-    private String nome;
+    private String nomeProduttore;
 
     @NotBlank
-    private String numeroPubblico;
+    private String cognomeProduttore;
+
+    @Size(min = 11, max = 11)
+    @NotBlank
+    private String partitaIva;
+
+    @NotBlank
+    private String numeroPrivato;
 
     @Email
     @NotBlank
-    private String email;
+    private String emailPrivata;
 
-    @NotNull
-    private UUID produttore;
+    @Size(min = 16, max = 16)
+    @NotBlank
+    private String codiceFiscale;
 
-    @NotNull
-    private UUID comune;
+    @NotBlank
+    private String nomeAzienda;
 
-    @NotNull
-    private UUID provincia;
+    @NotBlank
+    private String ragioneSociale;
 
+    @NotBlank
+    private String numeroAzienda;
+
+    @Email
+    @NotBlank
+    private String emailAzienda;
+
+    @NotBlank
+    private String comune;
+
+    @NotBlank
+    private String provincia;
+
+    @NotBlank
+    private String indirizzo;
+
+    @NotBlank
+    private String cap;
+
+    @Size(min = 8)
+    @NotBlank
+    private String password;
 }

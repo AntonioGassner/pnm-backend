@@ -1,12 +1,7 @@
 package it.unicam.pnm.outbound.adapter.persistence.repository;
 
 import it.unicam.pnm.core.model.AziendaModel;
-import it.unicam.pnm.core.model.AziendaModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDettaglioDTO;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaPreviewDTO;
 import it.unicam.pnm.outbound.adapter.persistence.entity.AziendaEntity;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;

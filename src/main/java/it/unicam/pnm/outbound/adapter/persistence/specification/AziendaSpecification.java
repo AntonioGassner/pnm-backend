@@ -1,7 +1,7 @@
 package it.unicam.pnm.outbound.adapter.persistence.specification;
 
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
-import it.unicam.pnm.outbound.adapter.persistence.entity.*;
+import it.unicam.pnm.outbound.adapter.persistence.entity.AziendaEntity;
 import org.springframework.data.jpa.domain.Specification;
 
 public class AziendaSpecification extends AbstractSpecification<AziendaEntity> {
@@ -19,5 +19,5 @@ public class AziendaSpecification extends AbstractSpecification<AziendaEntity> {
                         .and(super.applySearchFilter(criteria.getTipoProdotto(), "tipoProdotto"));
         return specification;
     }
-    
+
 }

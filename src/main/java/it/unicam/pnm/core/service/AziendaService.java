@@ -2,7 +2,10 @@ package it.unicam.pnm.core.service;
 
 import it.unicam.pnm.core.mapper.inbound.AziendaDTOMapper;
 import it.unicam.pnm.core.model.AziendaModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.*;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCreateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
 import it.unicam.pnm.inbound.port.AziendaInboundPort;
 import it.unicam.pnm.outbound.port.AziendaOutboundPort;
 import it.unicam.pnm.web.rest.errors.NotFoundException;

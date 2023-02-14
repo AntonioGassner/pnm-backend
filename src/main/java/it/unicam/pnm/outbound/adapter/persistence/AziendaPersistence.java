@@ -2,7 +2,7 @@ package it.unicam.pnm.outbound.adapter.persistence;
 
 import it.unicam.pnm.core.mapper.outbound.AziendaEntityMapper;
 import it.unicam.pnm.core.model.AziendaModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.*;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
 import it.unicam.pnm.outbound.adapter.persistence.entity.AziendaEntity;
 import it.unicam.pnm.outbound.adapter.persistence.repository.AziendaRepository;
 import it.unicam.pnm.outbound.adapter.persistence.specification.AziendaSpecification;
@@ -43,7 +43,7 @@ public class AziendaPersistence extends AziendaSpecification implements AziendaO
     }
 
     @Override
-    public AziendaModel validateLogin(String user, String pass){
+    public AziendaModel validateLogin(String user, String pass) {
         return this.aziendaRepository.getByEmailPrivataAndPassword(user, pass);
     }
 

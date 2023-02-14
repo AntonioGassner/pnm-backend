@@ -1,12 +1,12 @@
 package it.unicam.pnm.inbound.port;
 
-import it.unicam.pnm.core.model.AziendaModel;
-import it.unicam.pnm.inbound.adapter.rest.dto.azienda.*;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCreateDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDTO;
+import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.ResponseEntity;
 
-import java.util.ArrayList;
 import java.util.UUID;
 
 public interface AziendaInboundPort {

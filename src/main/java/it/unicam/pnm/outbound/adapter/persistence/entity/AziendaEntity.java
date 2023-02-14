@@ -104,6 +104,7 @@ public class AziendaEntity {
     @Column(name = "tipo_prodotto")
     private String tipoProdotto;
 
+    @NotBlank
     @Column(name = "password")
     private String password;
 

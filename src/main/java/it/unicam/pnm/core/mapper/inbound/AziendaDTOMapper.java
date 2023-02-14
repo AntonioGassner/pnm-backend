@@ -6,7 +6,6 @@ import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCreateDTO;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDTO;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {})
 public interface AziendaDTOMapper extends DTOMapper<AziendaDTO, AziendaModel> {

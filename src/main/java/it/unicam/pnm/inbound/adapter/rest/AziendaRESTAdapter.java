@@ -65,7 +65,7 @@ public class AziendaRESTAdapter {
     }
 
     @GetMapping("/login")
-    ResponseEntity<AziendaDTO> validateLogin(String user, String pass){
+    ResponseEntity<AziendaDTO> validateLogin(String user, String pass) {
         return new ResponseEntity<>(aziendaInboundPort.validateLogin(user, pass), HttpStatus.OK);
     }
 
@@ -74,6 +74,7 @@ public class AziendaRESTAdapter {
         aziendaInboundPort.setTesseramentoAttivo(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
     @PutMapping
     public ResponseEntity<AziendaDTO> updateAzienda(@Valid @RequestBody AziendaUpdateDTO dto) {
         return new ResponseEntity<>(aziendaInboundPort.update(dto), HttpStatus.OK);

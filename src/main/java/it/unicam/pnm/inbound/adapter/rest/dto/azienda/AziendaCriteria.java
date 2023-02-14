@@ -1,7 +1,6 @@
 package it.unicam.pnm.inbound.adapter.rest.dto.azienda;
 
 import io.github.jhipster.service.filter.StringFilter;
-import io.github.jhipster.service.filter.UUIDFilter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

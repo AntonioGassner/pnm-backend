@@ -30,15 +30,15 @@ public class AziendaRESTAdapter {
     @Autowired
     private AziendaInboundPort aziendaInboundPort;
 
-    @Operation(summary = "Crea un'Azienda", description = "La creazione richiede: nomeProduttore, cognomeProduttore, partitaIva, numeroPrivato, emailPrivata, codiceFiscale, nomeAzienda, ragioneSociale, numeroAzienda, emailAzienda, comune, provincia, indirizzo, cap, password", tags = {"Anagrafica Resource"})
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Azienda creata", content = {
-                    @Content(mediaType = "application/json")}),
-            @ApiResponse(responseCode = "400", description = "Input non valido", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Problem.class))}),
-            @ApiResponse(responseCode = "401", description = "Azione non consentita", content = {
-                    @Content(mediaType = "application/json", schema = @Schema(implementation = Problem.class))})
-    })
+//    @Operation(summary = "Crea un'Azienda", description = "La creazione richiede: nomeProduttore, cognomeProduttore, partitaIva, numeroPrivato, emailPrivata, codiceFiscale, nomeAzienda, ragioneSociale, numeroAzienda, emailAzienda, comune, provincia, indirizzo, cap, password", tags = {"Anagrafica Resource"})
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "Azienda creata", content = {
+//                    @Content(mediaType = "application/json")}),
+//            @ApiResponse(responseCode = "400", description = "Input non valido", content = {
+//                    @Content(mediaType = "application/json", schema = @Schema(implementation = Problem.class))}),
+//            @ApiResponse(responseCode = "401", description = "Azione non consentita", content = {
+//                    @Content(mediaType = "application/json", schema = @Schema(implementation = Problem.class))})
+//    })
     @PostMapping
     public ResponseEntity<AziendaDTO> createAzienda(@Valid @RequestBody AziendaCreateDTO dto) {
         return new ResponseEntity<>(aziendaInboundPort.create(dto), HttpStatus.OK);

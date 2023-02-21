@@ -2,6 +2,9 @@
 
 Prodotti Nobili Marchigiani BackEnd
 
+URL for API generation
+http://localhost:8080/v3/api-docs
+
 # Installation
 
 1) Download and install PostgreSQL. Install Pgadmin4 as well (Should come as default in Postgre installation)

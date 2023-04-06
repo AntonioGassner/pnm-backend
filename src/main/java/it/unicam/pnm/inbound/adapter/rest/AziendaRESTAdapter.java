@@ -1,17 +1,11 @@
 package it.unicam.pnm.inbound.adapter.rest;
 
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCreateDTO;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaCriteria;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaDTO;
 import it.unicam.pnm.inbound.adapter.rest.dto.azienda.AziendaUpdateDTO;
 import it.unicam.pnm.inbound.port.AziendaInboundPort;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.parsing.Problem;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

@@ -17,4 +17,5 @@ public interface AziendaRepository extends JpaRepository<AziendaEntity, UUID>, J
     void attivaTesseramento(UUID id);
 
     AziendaEntity getByEmailPrivataAndPassword(String user, String pass);
+    // TODO resolve error "query did not return a unique result" somehow
 }
